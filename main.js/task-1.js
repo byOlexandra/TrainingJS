@@ -45,7 +45,19 @@ function leapYear(year) {
         return false;
     }
 }
-
+function calc(a, b, operator) {
+    if (operator === "+") {
+        return a + b;
+    } else if (operator === "-") {
+        return a - b;
+    } else if (operator === "*") {
+        return a * b;
+    } else if (operator === "/") {
+        return a / b;
+    } else {
+        return "Invalid operator"
+    }
+}
 //Задача на знаходження парного числа
 console.log(isNumEven(7));
 console.log(isNumEven(2));
@@ -72,6 +84,11 @@ console.log(leapYear(2000));
 console.log(leapYear(1900));
 console.log(leapYear(2024));
 console.log(leapYear(2023));
+//Калькулятор (+,-,*,/)
+console.log(calc(6, 7, "+"));
+console.log(calc(7, 8, "*"));
+console.log(calc(6, 7, "'"));
+
 
 
 
