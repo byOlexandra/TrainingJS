@@ -82,3 +82,40 @@ function posEl(arr2) {
 }
 console.log(posEl([1, -2, -1, 7, -2, 8, 9]));
 
+//Напиши функцію яка приймає масив рядочків. Потрібно змінити кожен елемент масиву наступним чином - якщо довжина рядочку менша за 6 до привести рядок до нижнього регістру, в іншому випадку привести до верхнього регістру.
+function transformStr(arr) {
+    return arr.map(str => {
+        if (str.length < 6) {
+            return str.toLowerCase();
+        } else {
+            return str.toUpperCase();
+        }
+    })
+}
+console.log(transformStr(["DOG", "houseeee", "FamIlyyy", "hi", "cat"]));
+
+//Напиши функцію, яка приймає масив чисел і повертає новий масив, що містить лише непарні числа.
+function negativeEl(arr) {
+    let newArr = [];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+            newArr.push(arr[i])
+        }
+    }
+    return newArr;
+}
+console.log(negativeEl([1, 2, 3, 5, 4, 6, 7, 78, 99]));
+
+//Напиши функцію, яка приймає масив чисел і повертає новий масив, де кожне число помножене на індекс, за яким воно знаходиться в масиві.
+function doubleIndex(arr) {
+    return arr.map((num, index) => num * index);    
+}
+console.log(doubleIndex([3, 5, 4, 6, 7, 78, 99]));
+
+//Напиши функцію, яка приймає масив чисел і повертає новий масив, що містить лише числа, які діляться на 3.
+function three(arr) {
+    return arr.filter(item => item % 3 === 0);
+}
+console.log(three([3, 5, 4, 6, 7, 78, 99]));
+
+
