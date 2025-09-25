@@ -89,7 +89,3 @@ console.log(calc(6, 7, "+"));
 console.log(calc(7, 8, "*"));
 console.log(calc(6, 7, "'"));
 
-
-
-
-
