@@ -56,5 +56,38 @@ function noDouble(arr1, arr2) {
 }
 console.log(noDouble([1, 4, 4, 6, 7], [1, 1, 3, 3, 4, 5, 4]));
 
+//Напиши функцію, яка приймає массив чисел і повертає новий массив, де кожен елемент є середньоарифметичним всіх сусідніх елементів.
+function average(arr) {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (i === 0 || i === arr.length - 1) {
+            result.push(arr[i]);
+        } else {
+            const avg = (arr[i - 1] + arr[i + 1]) / 2;
+            result.push(avg);
+        }
+    }
+    return result;
+}
+console.log(average([1, 22, 30, 7, 77, 8]));
 
+//Напиши функцію, яка приймає массив чисел і повертає новий массив, де елементи відсортовані в порядку збільшення або зменшення.
+//? За спаданням
+function sort(arr) {
+    const result = arr.sort((a, b) => b - a);
+    return result;
+}
+console.log(sort([1, 22, 30, 7, 77, 8, 0]));
+//? За зростанням
+function sortPlus(arr) {
+    const result = arr.sort((a, b) => a - b);
+    return result;
+}
+console.log(sortPlus([1, 22, 30, 7, 77, 8, 0]));
 
+//Напиши функцію, яка приймає массив рядочків та сортує їх за довжиною елементів.
+function sortLength(arr) {
+    const result = arr.sort((a, b) => a.length - b.length);
+    return result;
+}
+console.log(sortLength(["hello", "banana", "key", "hi", "suitcase", "blablabla", "y"]));
