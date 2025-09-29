@@ -28,3 +28,11 @@ function removeSmallest(numbers) {
     return copy;
 }
 console.log(removeSmallest([1, 2, 3, 4, 5, 5, 3, 2, 1, 4]));
+
+//Вам буде надано список рядків. Ви повинні відсортувати його в алфавітному порядку (з урахуванням регістру та на основі значень ASCII символів), а потім повернути перше значення. Повернене значення має бути рядком, і "***"між кожною його літерою має бути.
+function twoSort(s) {
+    const sorted = s.sort();
+    const str = sorted[0].split('').join('***');
+    return str;
+}
+
