@@ -149,3 +149,7 @@ console.log(addOne([
     { name: "Anna", age: 25 },
     { name: "Vika", age: 30 }
 ]));
+
+let arr = [1, 2, 3];
+arr.forEach(el => console.log(el * 2));
+console.log(arr);
