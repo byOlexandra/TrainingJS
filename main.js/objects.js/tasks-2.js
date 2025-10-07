@@ -127,3 +127,42 @@ const temperatureConverter = {
 }
 console.log(temperatureConverter.celsiusToFahrenheit(0));    // має бути 32
 console.log(temperatureConverter.fahrenheitToCelsius(212));  // має бути 100
+
+// Створіть об'єкт shoppingCart, який зберігатиме список товарів та надаватиме методи для додавання товарів, підрахунку загальної вартості та виведення списку товарів.
+const shoppingCart = {
+    itemList: [],
+    addItem(name, price, quantity) {
+        return this.itemList.push({ name, price, quantity });
+    },
+    totalPrice() {
+        return this.itemList.reduce((total, item) => total + item.price * item.quantity, 0)
+    },
+    showList() {
+        return this.itemList
+    }
+}
+shoppingCart.addItem("Яблуко", 15, 3);
+shoppingCart.addItem("Молоко", 40, 1);
+shoppingCart.showList();
+console.log(shoppingCart.showList());
+console.log("Загальна вартість:", shoppingCart.totalPrice(), "грн");
+
+// Створіть об'єкт socialNetworkUser, який представляє користувача соціальної мережі з полями username, friends (список друзів) та методами для додавання та видалення друзів, а також виведення списку друзів.
+const socialNetworkUser = {
+    username: "Oleksandra",
+    friends: [],
+    addFriend(name) {
+        this.friends.push({name})
+    },
+    removeFriend(name) {
+        this.friends = this.friends.filter(friend => friend.name !== name)
+    },
+    showFriends() {
+        return this.friends
+    }
+}
+socialNetworkUser.addFriend("Марія");
+socialNetworkUser.addFriend("Андрій");
+console.log(socialNetworkUser.showFriends());
+socialNetworkUser.removeFriend("Андрій");
+console.log(socialNetworkUser.showFriends());
