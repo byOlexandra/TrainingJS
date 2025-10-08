@@ -166,3 +166,40 @@ socialNetworkUser.addFriend("Андрій");
 console.log(socialNetworkUser.showFriends());
 socialNetworkUser.removeFriend("Андрій");
 console.log(socialNetworkUser.showFriends());
+
+// Створіть об'єкт musicPlayer, який зберігатиме список пісень та надаватиме методи для додавання нових пісень, відтворення, паузи та перемикання між піснями.
+const musicPlayer = {
+    songList: [],
+    addNew(author, name) {
+        this.songList.push({ name, author });
+    },
+    playSong(name) {
+        const song = this.songList.find(song => song.name === name);
+        if (song) {
+            this.currentSong = song;
+            this.isPlaying = true;
+        } else (
+            console.log("Такої пісні немає у списку")
+        )
+    },
+    pauseSong() {
+        if (this.isPlaying) {
+            this.isPlaying = false;
+            console.log("Пісня на паузі");
+        } else {
+            console.log("Нічого не грає")            
+        }
+    },
+    changeSong(name) {
+        this.playSong(name)
+    }
+}
+musicPlayer.addNew("The Weeknd", "Blinding Lights");
+musicPlayer.addNew("Imagine Dragons", "Believer");
+musicPlayer.addNew("Ed Sheeran", "Shape of You");
+
+console.log(musicPlayer.songList); // перевіримо, чи додалися пісні
+
+musicPlayer.playSong("Believer");  // ▶Грає Imagine Dragons — Believer
+musicPlayer.pauseSong();           // ⏸ Пісня на паузі
+musicPlayer.changeSong("Shape of You"); // ⏭ Перемикаємо пісню...
