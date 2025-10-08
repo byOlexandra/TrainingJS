@@ -197,9 +197,31 @@ const musicPlayer = {
 musicPlayer.addNew("The Weeknd", "Blinding Lights");
 musicPlayer.addNew("Imagine Dragons", "Believer");
 musicPlayer.addNew("Ed Sheeran", "Shape of You");
-
 console.log(musicPlayer.songList); // перевіримо, чи додалися пісні
+musicPlayer.playSong("Believer");  // Грає Imagine Dragons — Believer
+musicPlayer.pauseSong();           //  Пісня на паузі
+musicPlayer.changeSong("Shape of You"); // Перемикаємо пісню...
 
-musicPlayer.playSong("Believer");  // ▶Грає Imagine Dragons — Believer
-musicPlayer.pauseSong();           // ⏸ Пісня на паузі
-musicPlayer.changeSong("Shape of You"); // ⏭ Перемикаємо пісню...
+// Створіть об'єкт myString, який буде мати наступні методи: метод reverse(), який параметром приймає рядок, а повертає його в перевернутому вигляді; метод ucFirst(), який параметром приймає рядок, а повертає цей же рядок, зробивши його першу літеру заголовною; і метод ucWords(), який приймає рядок і робить заголовною першу літеру кожного слова цього рядка.
+const myString = {
+    reverse(str) {
+        return str.split("").reverse().join("")
+    },
+    ucFirst(str) {
+        const firstLetter = str[0].toUpperCase();
+        return firstLetter + str.slice(1);
+    },
+    ucWords(str) {
+        return str
+        .split(" ") // розбиваємо рядок на окремі слова
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // робимо першу літеру великою
+        .join(" ")
+    }
+}
+console.log(myString.reverse("hello, my dear"));
+console.log(myString.ucFirst("laptop"));
+console.log(myString.ucWords("hello world")); // "Hello World"
+console.log(myString.ucWords("javascript is fun")); // "Javascript Is Fun"
+console.log(myString.ucWords("олександра староватова")); // "Олександра Староватова"
+
+
