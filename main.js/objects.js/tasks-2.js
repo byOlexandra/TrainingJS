@@ -224,4 +224,52 @@ console.log(myString.ucWords("hello world")); // "Hello World"
 console.log(myString.ucWords("javascript is fun")); // "Javascript Is Fun"
 console.log(myString.ucWords("олександра староватова")); // "Олександра Староватова"
 
+// Створіть об'єкт validator, який перевірятиме рядки. Наприклад, у нього буде метод isEmail, що параметром приймає рядок і перевіряє, чи є він коректним емейлом чи ні. Якщо є – повертає true, якщо не є – то false. Крім того, об'єкт буде мати такі методи: метод isDomain для перевірки домену, метод isDate для перевірки дати і метод isPhone для перевірки телефону.
+
+const validator = {
+    isEmail(str) {
+        return str.endsWith(".com") && str.includes("@");
+    },
+    isDomain(domainName) {
+        return domainName.startsWith("www.") && domainName.endsWith(".com")
+    },
+    isDate(date) {
+        return !isNaN(Date.parse(date));
+    },
+    isPhone(phoneNumber) {
+        return phoneNumber.startsWith("+38");
+    }
+}
+console.log(validator.isEmail("test@gmail.com"));     // true
+console.log(validator.isDomain("www.google.com"));    // true
+console.log(validator.isDomain("google.com"));    // false
+console.log(validator.isDate("2025-10-09"));          // true
+console.log(validator.isPhone("+380501234567"));      // true
+
+const contactsBook = {
+    contactsList: [],
+    addAContact(contactName) {
+        return this.contactsList.push({contactName})
+    },
+    deleteAContact(contactName) {
+        const initialLength = this.contactsList.length
+        this.contactsList = this.contactsList.filter(contact => contact.contactName !== contactName);
+        return (this.contactsList.length < initialLength)
+            ? `${contactName} успішно видалено`
+            : `${contactName} не знайдено`
+    },
+    findAContact(contactName) {
+        const found = this.contactsList.find(contact => contact.contactName === contactName)
+        return found ? found : "Ваш контакт не знайдено"
+    }
+}
+console.log(contactsBook.addAContact("Olena"));
+console.log(contactsBook.addAContact("Vika"));
+console.log(contactsBook.addAContact("Anna"));
+console.log(contactsBook.contactsList);
+console.log(contactsBook.deleteAContact("Olena"));
+console.log(contactsBook.contactsList);
+console.log(contactsBook.deleteAContact("Masha"));
+console.log(contactsBook.findAContact("Sasha"));
+
 
