@@ -135,5 +135,18 @@ console.log(temp.convertToCelsius());
 
 // Створи об'єкт із властивостями studentName (рядок), grade (число) та subject (рядок). Додай метод upgradeGrade, який збільшує значення grade на 1, та метод getReport, який повертає рядок у форматі: [studentName] має оцінку [grade] з предмету [subject].
 const score = {
-    
+    studentName: "Sasha",
+    grade: 8,
+    subject: "PE",
+    upgradeGrade() {
+        const res = this.grade + 1;
+        return `Sasha збільшила оцінку => ${res}`;
+    },
+    getReport() {
+        return `${this.studentName} має оцінку ${this.grade} з предмету ${this.subject}`;
+    }
 }
+console.log(score.studentName);
+console.log(score.upgradeGrade());
+console.log(score.getReport());
+
