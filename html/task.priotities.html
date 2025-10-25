@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/task.priorities.css">
+    <title>Document</title>
+</head>
+<body>    
+    <form class="js-form">
+        <input type="text" name="input-value" class="form-control input-text" placeholder="Enter task title">
+        <input type="text" name="image" class="form-control input-text"  placeholder="Enter image URL">
+        <textarea name="description" class="form-control"  placeholder="Enter task description" cols="30" rows="10"></textarea>
+        <div class="form-control">
+            <label>
+                <input type="radio" name="priority" value="high" class="radio-btn high"> High
+            </label>
+            <label>
+                <input type="radio" name="priority" value="middle" class="radio-btn middle"> Middle
+            </label>
+            <label>
+                <input type="radio" name="priority" value="low" class="radio-btn low"> Low
+            </label>
+        </div>
+        <button type="submit" class="form-control submit-btn">Create item</button>
+    </form>
+
+    <ul class="js-items"></ul>
+
+    <script type="module" src="../main.js/events/task.priorities.js"></script>
+</body>
+</html>

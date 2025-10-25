@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: fit-content;
+    margin: 30px auto;
+}
+
+.input-text {
+    width: 300px;
+    height: 30px;
+    padding: 8px;
+}
+
+textarea {
+    padding: 8px;
+}
+
+input[type="radio"].high {
+    accent-color: red;
+}
+
+input[type="radio"].middle {
+    accent-color: orange;
+}
+
+input[type="radio"].low {
+    accent-color: green;
+}
+
+.submit-btn {
+    cursor: pointer;
+    background-color: aquamarine;
+    border-color: transparent;
+    border-radius: 16px;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.js-items {
+    display: flex;
+    gap: 20px;
+}
+
+.js-items li {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px;
+}
+
+.js-items li h3 {
+    text-transform: uppercase;
+    margin: 0 auto;
+    color: blueviolet;
+}
+
+.js-items li h5 {
+    color: brown;
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+.js-items li p {
+    color: blue;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.js-items li img {
+    border-radius: 16px;
+}
+
+.js-items li button {
+    background-color: bisque;
+    cursor: pointer;
+    border: transparent;
+    border-radius: 10px;
+    width: 140px;
+    height: 40px;
+    margin: 0 auto;
+}
