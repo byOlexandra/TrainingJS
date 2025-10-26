@@ -74,24 +74,38 @@ const toDo = [
 const refs = {
     form: document.querySelector(".js-form"),
     input: document.querySelector(".form-control"),
-    list: document.querySelector(".js-items")
+    list: document.querySelector(".js-items"),
+    modalOverlay: document.querySelector(".modal-overlay"),
+    modalClose: document.querySelector(".modal-close"),
+    modalContent: document.querySelector("#modal-content")
 };
 
+let items = JSON.parse(localStorage.getItem("items")) || [];
+
 function toDoTemplate(obj) {
-    const id = Math.round(Math.random() * 1000);
     return `
-            <li class="item">
-            <h3>${obj["input-value"]}</h3>
-            <h5>${obj.priority}</h5>
-            <p class="item-desc">${obj.description}</p>
-            <img src="${obj.image}" />
-            <button data-type="show">SHOW MORE</button>
-            <button data-type="delete">DELETE</button>
+            <li class="item" data-id="${obj.id}">
+            <div class="content-container">
+                <h3>${obj.title}</h3>
+                <h5>${obj.priority}</h5>
+                <p class="item-desc">${obj.description}</p>
+                <img src="${obj.image}" />
+            </div>
+            <div class="btns">
+                <button data-type="show">SHOW MORE</button>
+                <button data-type="delete">DELETE</button>
+            </div>
         </li>`
 }
 function toDosTemplate(arr) {
     return arr.map(toDoTemplate).join("");
 }
+
+function saveToLocalStorage() {
+    localStorage.setItem("items", JSON.stringify(items));
+}
+
+refs.list.innerHTML = toDosTemplate(items);
 
 refs.form.addEventListener("submit", e => {
     e.preventDefault();
@@ -100,9 +114,57 @@ refs.form.addEventListener("submit", e => {
     const toDoInfo = Object.fromEntries(formData.entries());
     console.log(toDoInfo);
 
-    toDo.unshift(toDoInfo); 
-    const markup = toDoTemplate(toDoInfo);
+    const newTask = {
+        id: Date.now(),
+        title: toDoInfo["input-value"],
+        description: toDoInfo.description.trim(),
+        image: toDoInfo.image.trim(),
+        priority: toDoInfo.priority,
+    }
+
+    items.unshift(newTask); 
+    const markup = toDoTemplate(newTask);
     refs.list.insertAdjacentHTML("afterbegin", markup);
+    saveToLocalStorage()
 
     refs.form.reset()
 })
+
+toDosTemplate(items)
+
+refs.list.addEventListener("click", (e) => {
+    if (e.target.dataset.type === "delete") {
+        e.preventDefault();
+        const li = e.target.closest("li");
+        const id = Number(li.dataset.id); // якщо треба видаляти з items
+        li.remove();
+
+        // Видаляємо з масиву items і зберігаємо в localStorage
+        items = items.filter(item => item.id !== id);
+        saveToLocalStorage();
+    }
+});
+
+toDosTemplate(items)
+
+
+refs.list.addEventListener('click', (e) => {
+    if (e.target.dataset.type === 'show') {
+        const li = e.target.closest('li');
+        const title = li.querySelector('h3').textContent;
+        const desc = li.querySelector('.item-desc').textContent;
+
+        refs.modalContent.innerHTML = `<strong>${title}</strong><p>${desc}</p>`;
+        refs.modalOverlay.classList.remove('hidden');
+    }
+});
+
+refs.modalClose.addEventListener('click', (e) => {
+    refs.modalOverlay.classList.add('hidden');
+});
+
+refs.modalOverlay.addEventListener('click', (e) => {
+    if (e.target === refs.modalOverlay) {
+        refs.modalOverlay.classList.add('hidden');
+    }
+});
