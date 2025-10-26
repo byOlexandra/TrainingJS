@@ -77,7 +77,8 @@ const refs = {
     list: document.querySelector(".js-items"),
     modalOverlay: document.querySelector(".modal-overlay"),
     modalClose: document.querySelector(".modal-close"),
-    modalContent: document.querySelector("#modal-content")
+    modalContent: document.querySelector("#modal-content"),
+    box: document.querySelector(".box")
 };
 
 let items = JSON.parse(localStorage.getItem("items")) || [];
@@ -168,3 +169,17 @@ refs.modalOverlay.addEventListener('click', (e) => {
         refs.modalOverlay.classList.add('hidden');
     }
 });
+
+const position = {
+    top: 100,
+    left: 100,
+}
+
+refs.box.addEventListener("click", () => {
+
+    position.left += 10;
+    position.top += 10;
+
+    refs.box.style.left = `${position.left}px`;
+    refs.box.style.top = `${position.top}px`;
+})

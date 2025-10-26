@@ -170,3 +170,13 @@ button[data-type="delete"] {
     background: none;
     cursor: pointer;
 }
+
+.box{
+    cursor: pointer;
+    background-color: blueviolet;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
