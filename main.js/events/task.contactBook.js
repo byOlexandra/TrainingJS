@@ -1,7 +1,10 @@
 const refs = {
     form: document.querySelector(".js-form"),
     input: document.querySelector(".form-control"),
+    searchInput: document.querySelector(".js-search-input"),
     list: document.querySelector(".js-list"),
+    searchBtn: document.querySelector(".searchBtn"),
+    deleteBtn: document.querySelector('[data-type="delete"]'),
     clearBtn: document.querySelector(".clearAllBtn")
 }
 
@@ -44,6 +47,31 @@ refs.form.addEventListener("submit", (e) => {
     saveToLocalStorage();
 
     refs.form.reset()
+})
+
+refs.searchBtn.addEventListener("click", e => {
+    e.preventDefault()
+    const value = refs.searchInput.value.trim().toLowerCase();
+    if (value === "") {
+        refs.list.innerHTML = contactsTemplate(items);
+        return;
+    }
+    const filtered = items.filter(item => {
+        return item.name.toLowerCase().includes(value)
+    })    
+    refs.list.innerHTML = contactsTemplate(filtered)
+})
+
+refs.list.addEventListener("click", e => {
+    e.preventDefault()
+    if (e.target.dataset.type === "delete") {
+        const li = e.target.closest("li");
+        const id = Number(li.dataset.id)
+        li.remove();
+
+        items = items.filter(item => item.id !== id)
+        saveToLocalStorage()
+    }
 })
 
 refs.clearBtn.addEventListener("click", e => {
