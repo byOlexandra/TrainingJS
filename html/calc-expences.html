@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/calc-expences.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="main-title">Calculator of exprences</h1>
+    <form class="js-form">
+        <div class="first-row">
+            <input type="text" name="amount" placeholder="Enter amount" class="form-control">
+            <select name="category" id="category-selection" class="form-control">
+                <option value="food" class="form-control">FOOD</option>
+                <option value="transport" class="form-control">TRANSPORT</option>
+                <option value="others" class="form-control">OTHERS</option>
+            </select>
+            <input type="date" name="date" class="form-control">
+        </div>
+        <button type="submit" class="form-control">ADD</button>
+    </form>
+
+    <ul class="js-list"></ul>
+    <script type="module" src="../main.js/events/calc-expences.js"></script>
+</body>
+</html>
