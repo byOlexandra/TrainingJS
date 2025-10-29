@@ -6,7 +6,7 @@
 
 body {
     padding: 90px;
-    background-color: rgb(152, 202, 204);
+    background-color: rgba(0,0,0,0.4);
 }
 
 button {
@@ -87,3 +87,10 @@ button[data-type="delete"] {
     background-color: rgb(209, 78, 78);
     margin: 0 auto;
 }
+
+.filter-error {
+    margin: 20px auto;
+    font-size: 25px;
+    color: crimson;
+}
+

@@ -64,6 +64,10 @@ refs.filter.addEventListener("input", e => {
         return;
     }
     const filteredItems = items.filter(item => item.date === selectedDate);
+    if (filteredItems.length === 0) {
+        refs.list.innerHTML = "<p class='filter-error'>date not found, try again or clean it</p> ";
+        return;
+    }
     refs.list.innerHTML = moodsTemplate(filteredItems)
 })
 
