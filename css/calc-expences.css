@@ -51,4 +51,38 @@ select {
     border-radius: 4px;
 }
 
+.js-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+}
 
+.expence-item {
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    background-color: beige;
+}
+
+.expence-item .amount {
+    font-weight: 600;
+}
+
+.expence-item p {
+    font-size: 25px;
+}
+
+.expence-item button {
+    background-color: transparent;
+    width: 80px;
+    height: 20px;
+    font-size: 10px;
+    color: rgb(73, 29, 29);
+    border-radius: 3px;
+    margin-left: auto;
+    margin-top: 30px;
+}

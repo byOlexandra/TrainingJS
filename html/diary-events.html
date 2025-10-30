@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/diary-events.css">
+    <title>Document</title>
+</head>
+<body>
+    <form class="js-form">
+        <input type="date" name="date" class="form-control">
+        <label for="title">Назва<input type="text" name="title" class="form-control" id="title"></label>
+        <label for="description">Опис<input type="text" name="description" id=description"" class="form-control"></label>
+        <button type="submit">Додати</button>
+    </form>
+    <select name="filterBy" id="filterBy">
+        <option value="" disabled selected>Фільтрувати за</option>
+        <option value="new-to-old">новіші-старіші</option>
+        <option value="old-to-new">старіші-новіші</option>
+    </select>
+    <ul class="js-list">
+        
+    </ul>
+    <script type="module" src="../main.js/events/diary-events.js"></script>
+</body>
+</html>

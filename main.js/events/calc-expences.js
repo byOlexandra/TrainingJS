@@ -8,7 +8,7 @@ function expenceTemplate(obj) {
     return `
     <li class="expence-item" id="${obj.id}">
     <p>Category:  ${obj.category}</p>
-    <p>Amount:  ${obj.amount}</p>
+    <p class="amount">Amount:  ${obj.amount}</p>
     <p>Date:  ${obj.date}</p>
     <button data-type="delete">DELETE</button>
     </li>`
@@ -33,8 +33,7 @@ refs.form.addEventListener("submit", e => {
     if (isEmpty) {
         const markup = ` <p class="error-msg">Fill in all the fields</p>`;
         refs.form.insertAdjacentHTML("beforeend", markup);
-        return;
-        
+        return;        
     }
 
     const newExpence = {
@@ -43,8 +42,6 @@ refs.form.addEventListener("submit", e => {
         category: expenceData.category,
         date: expenceData.date,
     }
-
-    
 
     items.unshift(newExpence);
     
