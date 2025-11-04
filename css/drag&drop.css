@@ -1,0 +1,20 @@
+.dropzone {
+    width: 300px;
+    height: 150px;
+    border: 3px dashed #888;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    color: #444;
+    transition: 0.3s;
+}
+
+.dropzone.active {
+    border-color: #2196f3;
+    background: #e3f2fd;
+    color: #0d47a1;
+}
